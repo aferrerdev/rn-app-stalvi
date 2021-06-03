@@ -308,8 +308,6 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-StalviApp/Pods-StalviApp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-StalviApp/Pods-StalviApp-resources-${CONFIGURATION}-output-files.xcfilelist",
