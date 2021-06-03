@@ -49,9 +49,11 @@ const styles = StyleSheet.create({
   },
   featuredTitle: {
     color: 'grey',
+    fontSize: 16,
   },
   featuredSubTitle: {
     color: 'grey',
+    fontSize: 14,
   },
   amountTitle: {
     marginLeft: 0,

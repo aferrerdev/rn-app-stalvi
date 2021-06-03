@@ -8,7 +8,6 @@ export enum Periodicity {
 export enum TransactionType {
   EXPENSES = 'EXPENSES',
   INCOME = 'INCOME',
-  SAVINGS = 'SAVINGS',
 }
 
 export enum ExpenseType {
@@ -28,22 +27,21 @@ export enum SavingType {
   OTHERS = 'OTHERS',
 }
 export enum Month {
-  JANUARY = 'JANUARY',
-  FEBRUARY = 'FEBRUARY',
-  MARCH = 'MARCH',
-  APRIL = 'APRIL',
-  MAY = 'MAY',
-  JUNE = 'JUNE',
-  JULY = 'JULY',
-  AUGUST = 'AUGUST',
-  SEPTEMBER = 'SEPTEMBER',
-  OCTOBER = 'OCTOBER',
-  NOVEMBER = 'NOVEMBER',
-  DECEMBER = 'DECEMBER',
+  JANUARY = 1,
+  FEBRUARY = 2,
+  MARCH = 3,
+  APRIL = 4,
+  MAY = 5,
+  JUNE = 6,
+  JULY = 7,
+  AUGUST = 8,
+  SEPTEMBER = 9,
+  OCTOBER = 10,
+  NOVEMBER = 11,
+  DECEMBER = 12,
 }
 
 export interface ITransaction {
-  id: string;
   name: string;
   amount: number;
   selectedMonths: Array<Month>;

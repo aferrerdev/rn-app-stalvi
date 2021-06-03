@@ -1,14 +1,17 @@
 import {CalculatorActionTypes} from '../actions/calculator.actions';
 import {BalanceState} from '../state';
+import {mockupState} from '../state.mockup';
 
+/*
 const initialBalanceState: BalanceState = {
   expenses: [],
   income: [],
   saving: [],
 };
+*/
 
 export function calculatorReducer(
-  state: BalanceState = initialBalanceState,
+  state: BalanceState = mockupState,
   action: CalculatorActionTypes,
 ): BalanceState {
   switch (action.type) {

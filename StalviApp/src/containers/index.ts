@@ -1,1 +1,1 @@
-export * from './TotalAmountCard';
+export * from './TransactionsAmountCard';
