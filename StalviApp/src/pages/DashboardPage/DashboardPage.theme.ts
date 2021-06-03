@@ -6,6 +6,9 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    alignContent: 'center',
+    alignContent: 'space-between',
+    alignItems: 'stretch',
+    marginRight: 10,
+    marginLeft: 10,
   },
 });

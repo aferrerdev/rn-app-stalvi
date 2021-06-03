@@ -1,6 +1,6 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import StackNavigator from './src/StackNavigator';
+import StackNavigator from './src/views/StackNavigator';
 import {Provider} from 'react-redux';
 import {store} from './src/redux/store';
 import {SafeAreaProvider} from 'react-native-safe-area-context';

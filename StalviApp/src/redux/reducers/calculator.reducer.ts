@@ -1,10 +1,10 @@
 import {CalculatorActionTypes} from '../actions/calculator.actions';
-import {BalanceState} from '../types/app.state';
+import {BalanceState} from '../state';
 
 const initialBalanceState: BalanceState = {
-  expenses: new Array<any>(),
-  income: new Array<any>(),
-  saving: new Array<any>(),
+  expenses: [],
+  income: [],
+  saving: [],
 };
 
 export function calculatorReducer(

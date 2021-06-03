@@ -1,5 +1,5 @@
 import {AccountActionTypes, LOGIN, LOGOUT} from '../actions/account.actions';
-import {ProfileState} from '../types/app.state';
+import {ProfileState} from '../state';
 
 const initialProfileState: ProfileState = {
   logged: false,

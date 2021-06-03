@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {Card} from 'react-native-elements';
 
 interface CardAmountProps {
@@ -8,24 +8,11 @@ interface CardAmountProps {
   amount: number;
 }
 
-const styles = StyleSheet.create({
-  cardStyle: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    borderRadius: 5,
-  },
-  featuredTitle: {
-    color: 'grey',
-  },
-  featuredSubTitle: {
-    color: 'grey',
-  },
-});
-
 const CardAmount = (props: CardAmountProps) => {
   return (
-    <Card containerStyle={styles.cardStyle}>
+    <Card
+      containerStyle={styles.containerStyle}
+      wrapperStyle={styles.wrapperStyle}>
       <Card.FeaturedTitle style={styles.featuredTitle}>
         {props.title}
       </Card.FeaturedTitle>
@@ -35,9 +22,41 @@ const CardAmount = (props: CardAmountProps) => {
           {props.subtitle}
         </Card.FeaturedSubtitle>
       ) : null}
-      <Text>{props.amount}</Text>
+      <Card.Title style={styles.amountTitle} h4>
+        {props.amount}
+      </Card.Title>
     </Card>
   );
 };
+
+const styles = StyleSheet.create({
+  wrapperStyle: {
+    flex: 1,
+    alignContent: 'center',
+  },
+  containerStyle: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    borderRadius: 5,
+    marginRight: 5,
+    marginLeft: 5,
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingTop: 10,
+    paddingBottom: 0,
+    marginBottom: 0,
+  },
+  featuredTitle: {
+    color: 'grey',
+  },
+  featuredSubTitle: {
+    color: 'grey',
+  },
+  amountTitle: {
+    marginLeft: 0,
+    textAlign: 'left',
+  },
+});
 
 export default CardAmount;
