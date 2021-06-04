@@ -18,7 +18,7 @@ const renderIcon = (name: string) => (
 const getIcon = (type: ExpenseType | IncomeType) => {
   switch (type) {
     case ExpenseType.HOUSE_RENT:
-      return renderIcon('money-check-alt');
+      return renderIcon('home');
     case ExpenseType.BILLS:
       return renderIcon('money-check-alt');
     case ExpenseType.BILLS:
