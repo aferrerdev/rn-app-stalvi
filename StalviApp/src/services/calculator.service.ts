@@ -8,6 +8,10 @@ export class BalanceCalculator {
     this.balance = balance;
   }
 
+  public getBalance() {
+    return this.balance;
+  }
+
   public getMonthlySavingsAfterExpenses() {
     const currentMonth = new Date().getMonth() + 1;
     const incomeAmount = this.balance.income

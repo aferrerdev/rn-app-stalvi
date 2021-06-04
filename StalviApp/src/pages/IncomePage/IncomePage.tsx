@@ -1,5 +1,7 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import TransactionsList from '../../containers/TransactionsList/TransactionsList';
+import {TransactionType} from '../../interfaces/interfaces';
 
 const styles = StyleSheet.create({
   page: {flex: 1, justifyContent: 'center', alignItems: 'center'},
@@ -8,7 +10,7 @@ const styles = StyleSheet.create({
 const IncomePage = () => {
   return (
     <View style={styles.page}>
-      <Text>Incomes</Text>
+      <TransactionsList type={TransactionType.INCOME} />
     </View>
   );
 };
