@@ -19,7 +19,7 @@ const SavingsForecast = () => {
     labels: ['J', 'F', 'M', 'A', 'May', 'June'],
     datasets: [
       {
-        data: [40000, 41000, 20000, 10000, 71, 43000],
+        data: [40000, 41000, 41500, 42700, 71, 43000],
       },
     ],
   };
@@ -31,6 +31,7 @@ const SavingsForecast = () => {
         width={Dimensions.get('window').width - 35}
         height={256}
         verticalLabelRotation={30}
+        fromZero
         formatYLabel={value => {
           const number = parseFloat(value);
           return Math.round(number).toString();
