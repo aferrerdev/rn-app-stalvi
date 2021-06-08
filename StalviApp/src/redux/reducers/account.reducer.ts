@@ -1,4 +1,4 @@
-import {AccountActionTypes, LOGIN, LOGOUT} from '../actions/account.actions';
+import {AccountActionTypes, LOGIN, LOGOUT} from '../actions/account.types';
 import {ProfileState} from '../state';
 
 const initialProfileState: ProfileState = {
@@ -18,7 +18,6 @@ export function accountReducer(
     case LOGOUT:
       return {
         ...state,
-        logged: false,
       };
     default:
       return state;

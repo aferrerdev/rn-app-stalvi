@@ -1,6 +1,4 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
-import {RootState} from '../../redux/reducers';
 import {
   ExpenseType,
   IncomeType,
@@ -14,6 +12,7 @@ import TransactionIcon from '../../components/TransactionIcon';
 
 interface TransactionsListProps {
   type: TransactionType;
+  transactions: Array<ITransaction>;
 }
 
 interface TransactionSection {
@@ -22,21 +21,12 @@ interface TransactionSection {
 }
 
 const TransactionsList = (props: TransactionsListProps) => {
-  const transactions = useSelector((state: RootState) => {
-    switch (props.type) {
-      case TransactionType.EXPENSES:
-        return state.balance.expenses;
-      case TransactionType.INCOME:
-        return state.balance.income;
-    }
-  });
-
   const sections: Array<TransactionSection> = [];
   const transactionSubTypes = Object.keys(
     props.type === TransactionType.EXPENSES ? ExpenseType : IncomeType,
   );
   transactionSubTypes.forEach(transactionType => {
-    const data = transactions.filter(
+    const data = props.transactions.filter(
       (transaction: ITransaction) => transaction.type === transactionType,
     );
     if (data.length > 0) {

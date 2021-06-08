@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Periodicity, TransactionType} from '../../interfaces/interfaces';
@@ -6,8 +6,15 @@ import TransactionsAmountCard from '../../containers/TransactionsAmountCard';
 import SavingsAmountCard from '../../containers/SavingsAmountCard';
 import MonthlySavingsCard from '../../containers/MonthlySavingsCard';
 import {styles} from './DashboardPage.theme';
+import {useDispatch} from 'react-redux';
 
 const DashboardPage = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    //dispatch(addIncome(undefined));
+  }, [dispatch]);
+
   return (
     <View style={styles.page}>
       <ScrollView>

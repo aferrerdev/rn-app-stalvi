@@ -48,4 +48,8 @@ export interface ITransaction {
   type: ExpenseType | IncomeType;
 }
 
-export interface IExpense {}
+export interface ISavings {
+  name: string;
+  amount: number;
+  type: SavingType;
+}

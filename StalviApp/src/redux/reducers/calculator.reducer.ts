@@ -1,4 +1,4 @@
-import {CalculatorActionTypes} from '../actions/calculator.actions';
+import {CalculatorActionTypes} from '../actions/calculator.types';
 import {BalanceState} from '../state';
 import {mockupState} from '../state.mockup';
 

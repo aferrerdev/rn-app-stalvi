@@ -1,29 +1,55 @@
-export const ADD_EXPENSE = 'ADD_EXPENSE';
-export const ADD_INCOME = 'ADD_INCOME';
-export const ADD_SAVINGS = 'ADD_SAVINGS';
-export const FETCH_USER_BALANCE = 'ADD_SAVINGS';
+import {ISavings, ITransaction} from '../../interfaces/interfaces';
+import {
+  ADD_EXPENSE,
+  ADD_SAVINGS,
+  ADD_INCOME,
+} from '../actions/calculator.types';
 
-interface AddExpenseAction {
-  type: typeof ADD_EXPENSE;
-  payload: any;
-}
+/**
+ * Add Expense
+ * @param {ITransaction} expense
+ * @returns
+ */
+export const addExpense = (expense: ITransaction) => {
+  return async (dispatch: any, getState: any) => {
+    setTimeout(() => {
+      console.log(getState);
+      console.log('Add Expense');
+      dispatch({
+        type: ADD_EXPENSE,
+        payload: expense,
+      });
+    }, 2000);
+  };
+};
 
-interface AddIncomeAction {
-  type: typeof ADD_INCOME;
-  payload: any;
-}
+/**
+ * Add Income
+ * @param {ITransaction} expense
+ * @returns
+ */
+export const addIncome = (income: ITransaction) => {
+  return async (dispatch: any, getState: any) => {
+    setTimeout(() => {
+      console.log(getState);
+      console.log('Add Income');
+      dispatch({
+        type: ADD_INCOME,
+        payload: income,
+      });
+    }, 2000);
+  };
+};
 
-interface AddSavingsAction {
-  type: typeof ADD_SAVINGS;
-  payload: any;
-}
-
-interface FetchUserBalanceAction {
-  type: typeof ADD_SAVINGS;
-  payload: any;
-}
-
-export type CalculatorActionTypes =
-  | AddExpenseAction
-  | AddIncomeAction
-  | AddSavingsAction;
+export const addSavings = (saving: ISavings) => {
+  return async (dispatch: any, getState: any) => {
+    setTimeout(() => {
+      console.log(getState);
+      console.log('Add Savings');
+      dispatch({
+        type: ADD_SAVINGS,
+        payload: saving,
+      });
+    }, 2000);
+  };
+};

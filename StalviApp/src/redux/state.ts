@@ -1,4 +1,4 @@
-import {ITransaction} from '../interfaces/interfaces';
+import {ISavings, ITransaction} from '../interfaces/interfaces';
 
 export interface UserProfile {
   name: string;
@@ -14,5 +14,5 @@ export interface ProfileState {
 export interface BalanceState {
   expenses: Array<ITransaction>;
   income: Array<ITransaction>;
-  saving: Array<ITransaction>;
+  saving: Array<ISavings>;
 }
