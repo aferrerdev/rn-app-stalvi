@@ -7,6 +7,7 @@ import SavingsAmountCard from '../../containers/SavingsAmountCard';
 import MonthlySavingsCard from '../../containers/MonthlySavingsCard';
 import {styles} from './DashboardPage.theme';
 import {useDispatch} from 'react-redux';
+import SavingsForecast from '../../containers/SavingsForecast';
 
 const DashboardPage = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,9 @@ const DashboardPage = () => {
             type={TransactionType.EXPENSES}
             periodicity={Periodicity.ALL_THE_TIME}
           />
+        </View>
+        <View style={styles.row}>
+          <SavingsForecast />
         </View>
       </ScrollView>
     </View>
