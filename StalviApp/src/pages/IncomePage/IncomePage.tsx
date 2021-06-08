@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {FAB} from 'react-native-elements';
-import TransactionsList from '../../containers/TransactionsList/TransactionsList';
+import TransactionsList from '../../components/TransactionsList/TransactionsList';
 import {TransactionType} from '../../interfaces/interfaces';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import {useSelector} from 'react-redux';
