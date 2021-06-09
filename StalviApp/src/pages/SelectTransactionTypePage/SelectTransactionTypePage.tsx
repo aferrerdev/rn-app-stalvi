@@ -32,8 +32,9 @@ const SelectTransactionTypePage = () => {
       <FlatList
         style={styles.listView}
         data={types}
-        renderItem={({item}) => (
-          <ListItem onPress={() => onTypePressed(item)}>
+        keyExtractor={(item, index) => item + index}
+        renderItem={({item, index}) => (
+          <ListItem key={item + index} onPress={() => onTypePressed(item)}>
             <TransactionIcon type={item as ExpenseType | IncomeType} />
             <ListItem.Content>
               <ListItem.Title>{item}</ListItem.Title>
