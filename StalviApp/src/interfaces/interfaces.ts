@@ -53,3 +53,15 @@ export interface ISavings {
   amount: number;
   type: SavingType;
 }
+
+export const getMonthArray = () => {
+  return Object.keys(Month);
+};
+
+export const getIncomeTypes = () => {
+  return Object.keys(IncomeType);
+};
+
+export const getExpenseTypes = () => {
+  return Object.keys(IncomeType);
+};

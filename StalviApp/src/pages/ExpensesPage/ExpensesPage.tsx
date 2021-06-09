@@ -6,12 +6,14 @@ import {TransactionType} from '../../interfaces/interfaces';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../redux/reducers';
+import {useNavigation} from '@react-navigation/native';
 
 const styles = StyleSheet.create({
   page: {flex: 1, justifyContent: 'flex-start', alignItems: 'flex-start'},
 });
 
 const ExpensesPage = () => {
+  const navigation = useNavigation();
   const expenses = useSelector((state: RootState) => state.balance.expenses);
   return (
     <View style={styles.page}>
@@ -21,6 +23,11 @@ const ExpensesPage = () => {
       />
       <FAB
         icon={<Ionicon name="add" color="white" size={22} />}
+        onPress={() =>
+          navigation.navigate('SelectTransactionType', {
+            type: TransactionType.EXPENSES,
+          })
+        }
         iconPosition="top"
         placement="right"
         visible

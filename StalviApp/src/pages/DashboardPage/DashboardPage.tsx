@@ -6,10 +6,14 @@ import TransactionsAmountCard from '../../containers/TransactionsAmountCard';
 import SavingsAmountCard from '../../containers/SavingsAmountCard';
 import MonthlySavingsCard from '../../containers/MonthlySavingsCard';
 import {styles} from './DashboardPage.theme';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import SavingsForecast from '../../containers/SavingsForecast';
+import {RootState} from '../../redux/reducers';
+import BalanceForecast from '../../containers/BalanceForecast';
+import MonthBalanceForecast from '../../containers/MonthForecast';
 
 const DashboardPage = () => {
+  const balance = useSelector((state: RootState) => state.balance);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,7 +38,13 @@ const DashboardPage = () => {
           />
         </View>
         <View style={styles.row}>
-          <SavingsForecast />
+          <SavingsForecast balance={balance} />
+        </View>
+        <View style={styles.row}>
+          <BalanceForecast balance={balance} />
+        </View>
+        <View style={styles.row}>
+          <MonthBalanceForecast balance={balance} />
         </View>
       </ScrollView>
     </View>
