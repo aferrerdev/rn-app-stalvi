@@ -1,4 +1,4 @@
-import {Route, Router, useNavigation} from '@react-navigation/core';
+import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
 import {ListItem} from 'react-native-elements';
