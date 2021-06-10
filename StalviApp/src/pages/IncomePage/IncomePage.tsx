@@ -21,8 +21,8 @@ const IncomePage = () => {
       <FAB
         icon={<Ionicon name="add" color="white" size={22} />}
         onPress={() =>
-          navigation.navigate('AddTransaction', {
-            type: TransactionType.EXPENSES,
+          navigation.navigate('SelectTransactionType', {
+            type: TransactionType.INCOME,
           })
         }
         iconPosition="top"

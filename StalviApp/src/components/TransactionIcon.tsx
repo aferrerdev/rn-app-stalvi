@@ -23,6 +23,14 @@ const getIcon = (type: ExpenseType | IncomeType) => {
       return renderIcon('money-check-alt');
     case ExpenseType.BILLS:
       return renderIcon('money-check-alt');
+    case IncomeType.SALARY:
+      return renderIcon('money-bill-alt');
+    case IncomeType.PENSION:
+      return renderIcon('money-check-alt');
+    case IncomeType.LOTTERY:
+      return renderIcon('grin-stars');
+    case IncomeType.OTHERS:
+      return renderIcon('hand-holding-usd');
     default:
       return null;
   }

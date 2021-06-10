@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/core';
+import {Route, Router, useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
 import {ListItem} from 'react-native-elements';
@@ -7,6 +7,8 @@ import {
   getIncomeTypes,
   IncomeType,
   ExpenseType,
+  TransactionType,
+  getExpenseTypes,
 } from '../../interfaces/interfaces';
 
 const styles = StyleSheet.create({
@@ -15,15 +17,28 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'stretch',
   },
+  card: {
+    flex: 1,
+    alignContent: 'stretch',
+  },
 });
 
-const SelectTransactionTypePage = () => {
-  const navigator = useNavigation();
-  const types: Array<string> = getIncomeTypes();
+interface SelectTransactionTypePageProps {
+  route: any;
+}
 
-  const onTypePressed = (type: string) => {
-    navigator.navigate('AddTransaction', {
-      type,
+const SelectTransactionTypePage = (props: SelectTransactionTypePageProps) => {
+  const transactionType = props.route.params.type;
+  const navigator = useNavigation();
+  const types: Array<string> =
+    transactionType === TransactionType.INCOME
+      ? getIncomeTypes()
+      : getExpenseTypes();
+
+  const onTypePressed = (subType: string) => {
+    navigator.navigate('SelectMonths', {
+      type: transactionType,
+      subType,
     });
   };
 
@@ -34,11 +49,15 @@ const SelectTransactionTypePage = () => {
         data={types}
         keyExtractor={(item, index) => item + index}
         renderItem={({item, index}) => (
-          <ListItem key={item + index} onPress={() => onTypePressed(item)}>
+          <ListItem
+            topDivider
+            key={item + index}
+            onPress={() => onTypePressed(item)}>
             <TransactionIcon type={item as ExpenseType | IncomeType} />
             <ListItem.Content>
               <ListItem.Title>{item}</ListItem.Title>
             </ListItem.Content>
+            <ListItem.Chevron />
           </ListItem>
         )}
       />

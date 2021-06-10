@@ -26,19 +26,20 @@ export enum SavingType {
   CASH = 'CASH',
   OTHERS = 'OTHERS',
 }
+
 export enum Month {
-  JANUARY = 1,
-  FEBRUARY = 2,
-  MARCH = 3,
-  APRIL = 4,
-  MAY = 5,
-  JUNE = 6,
-  JULY = 7,
-  AUGUST = 8,
-  SEPTEMBER = 9,
-  OCTOBER = 10,
-  NOVEMBER = 11,
-  DECEMBER = 12,
+  JANUARY = '1',
+  FEBRUARY = '2',
+  MARCH = '3',
+  APRIL = '4',
+  MAY = '5',
+  JUNE = '6',
+  JULY = '7',
+  AUGUST = '8',
+  SEPTEMBER = '9',
+  OCTOBER = '10',
+  NOVEMBER = '11',
+  DECEMBER = '12',
 }
 
 export interface ITransaction {
@@ -54,14 +55,10 @@ export interface ISavings {
   type: SavingType;
 }
 
-export const getMonthArray = () => {
-  return Object.keys(Month);
-};
-
 export const getIncomeTypes = () => {
   return Object.keys(IncomeType);
 };
 
 export const getExpenseTypes = () => {
-  return Object.keys(IncomeType);
+  return Object.keys(ExpenseType);
 };

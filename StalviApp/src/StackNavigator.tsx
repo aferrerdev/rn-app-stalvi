@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 import AddTransactionPage from './pages/AddTransactionPage/AddTransactionPage';
 import AddSavingsPage from './pages/AddSavingsPage/AddSavingsPage';
 import SelectTransactionTypePage from './pages/SelectTransactionTypePage/SelectTransactionTypePage';
+import SelectMonthsPage from './pages/SelectMonthsPage/SelectMonthsPage';
 
 enableScreens();
 const Stack = createNativeStackNavigator();
@@ -25,6 +26,7 @@ const StackNavigator = () => {
         name="SelectTransactionType"
         component={SelectTransactionTypePage}
       />
+      <Stack.Screen name="SelectMonths" component={SelectMonthsPage} />
       <Stack.Screen name="Register" component={RegisterPage} />
       <Stack.Screen name="Login" component={LoginPage} />
     </Stack.Navigator>

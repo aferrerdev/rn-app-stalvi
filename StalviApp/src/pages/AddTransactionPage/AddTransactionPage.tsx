@@ -6,7 +6,12 @@ const styles = StyleSheet.create({
   page: {flex: 1, justifyContent: 'flex-start', alignItems: 'flex-start'},
 });
 
-const AddTransactionPage = () => {
+interface AddTransactionPageProps {
+  route: any;
+}
+
+const AddTransactionPage = (props: AddTransactionPageProps) => {
+  console.log(props.route.params);
   return (
     <View style={styles.page}>
       <Text>Add</Text>
