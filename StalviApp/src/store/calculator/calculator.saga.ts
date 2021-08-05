@@ -1,11 +1,11 @@
 import {PayloadAction} from '@reduxjs/toolkit';
 import {ITransaction} from '../../interfaces/interfaces';
-import {all, put, takeEvery} from 'redux-saga/effects';
+import {all, put, takeLatest} from 'redux-saga/effects';
 import {addExpense, addIncome, addSaving} from './calculator.reducer';
 
 function* handleAddIncome(action: PayloadAction<ITransaction>) {
-  console.log(action);
-  yield put(action);
+  console.log('handle');
+  yield put(addIncome(action.payload));
 }
 
 function* handleAddExpense(action: PayloadAction<ITransaction>) {
@@ -18,8 +18,8 @@ function* handleAddSaving(action: PayloadAction<ITransaction>) {
 
 export function* calculatorSaga() {
   yield all([
-    takeEvery(addIncome.type, handleAddIncome),
-    takeEvery(addExpense.type, handleAddExpense),
-    takeEvery(addSaving.type, handleAddSaving),
+    takeLatest(addIncome.type, handleAddIncome),
+    takeLatest(addExpense.type, handleAddExpense),
+    takeLatest(addSaving.type, handleAddSaving),
   ]);
 }

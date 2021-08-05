@@ -3,8 +3,8 @@ import {
   ExpenseType,
   Month,
   IncomeType,
-} from '../interfaces/interfaces';
-import {BalanceState} from './calculator/calculator.reducer';
+} from '../../interfaces/interfaces';
+import {BalanceState} from '../calculator/calculator.reducer';
 
 const expenses: Array<ITransaction> = [
   {

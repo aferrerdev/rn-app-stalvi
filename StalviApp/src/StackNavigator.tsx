@@ -1,13 +1,13 @@
 import {enableScreens} from 'react-native-screens';
 import {createNativeStackNavigator} from 'react-native-screens/native-stack';
 import React from 'react';
-import HomeTabsPage from './pages/HomeTabsPage/HomeTabsPage';
-import LoginPage from './pages/LoginPage/LoginPage';
-import RegisterPage from './pages/RegisterPage/RegisterPage';
-import AddTransactionPage from './pages/AddTransactionPage/AddTransactionPage';
-import AddSavingsPage from './pages/AddSavingsPage/AddSavingsPage';
-import SelectTransactionTypePage from './pages/SelectTransactionTypePage/SelectTransactionTypePage';
-import SelectMonthsPage from './pages/SelectMonthsPage/SelectMonthsPage';
+import HomeTabsPage from './screens/HomeTabsPage/HomeTabsPage';
+import LoginPage from './screens/LoginPage/LoginPage';
+import RegisterPage from './screens/RegisterPage/RegisterPage';
+import AddTransactionPage from './screens/AddTransactionPage/AddTransactionPage';
+import AddSavingsPage from './screens/AddSavingsPage/AddSavingsPage';
+import SelectTransactionTypePage from './screens/SelectTransactionTypePage/SelectTransactionTypePage';
+import SelectMonthsPage from './screens/SelectMonthsPage/SelectMonthsPage';
 
 enableScreens();
 const Stack = createNativeStackNavigator();

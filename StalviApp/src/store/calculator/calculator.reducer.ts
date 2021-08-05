@@ -1,6 +1,6 @@
 import {createAction, createReducer, PayloadAction} from '@reduxjs/toolkit';
 import {ISavings, ITransaction} from '../../interfaces/interfaces';
-import {mockupState} from '../state.mockup';
+import {mockupState} from '../mockup/state.mockup';
 
 export const addExpense = createAction<ITransaction>('@BALANCE/ADD_EXPENSE');
 export const addIncome = createAction<ITransaction>('@BALANCE/ADD_INCOME');
