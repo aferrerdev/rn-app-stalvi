@@ -1,5 +1,13 @@
-import {AccountActionTypes, LOGIN, LOGOUT} from '../actions/account.types';
-import {ProfileState} from '../state';
+import {AccountActionTypes, LOGIN, LOGOUT} from './account.types';
+
+export interface ProfileState {
+  logged: boolean;
+  language?: string;
+  user?: {
+    name: string;
+    email: string;
+  };
+}
 
 const initialProfileState: ProfileState = {
   logged: false,

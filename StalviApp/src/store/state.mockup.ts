@@ -4,7 +4,7 @@ import {
   Month,
   IncomeType,
 } from '../interfaces/interfaces';
-import {BalanceState} from './state';
+import {BalanceState} from './calculator/calculator.reducer';
 
 const expenses: Array<ITransaction> = [
   {
@@ -53,5 +53,5 @@ const income: Array<ITransaction> = [
 export const mockupState: BalanceState = {
   expenses: expenses,
   income: income,
-  saving: expenses,
+  saving: [],
 };
