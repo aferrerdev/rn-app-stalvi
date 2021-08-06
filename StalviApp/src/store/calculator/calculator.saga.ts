@@ -1,25 +1,32 @@
 import {PayloadAction} from '@reduxjs/toolkit';
 import {ITransaction} from '../../interfaces/interfaces';
-import {all, put, takeLatest} from 'redux-saga/effects';
-import {addExpense, addIncome, addSaving} from './calculator.reducer';
+import {all, put, takeEvery} from 'redux-saga/effects';
+import {
+  addExpenseRequest,
+  addExpenseSuccess,
+  addIncomeRequest,
+  addIncomeSuccess,
+  addSavingRequest,
+  addSavingSuccess,
+} from './calculator.reducer';
 
 function* handleAddIncome(action: PayloadAction<ITransaction>) {
   console.log('handle');
-  yield put(addIncome(action.payload));
+  yield put(addIncomeSuccess(action.payload));
 }
 
 function* handleAddExpense(action: PayloadAction<ITransaction>) {
-  console.log(action);
+  yield put(addExpenseSuccess(action.payload));
 }
 
 function* handleAddSaving(action: PayloadAction<ITransaction>) {
-  console.log(action);
+  yield put(addSavingSuccess(action.payload));
 }
 
 export function* calculatorSaga() {
   yield all([
-    takeLatest(addIncome.type, handleAddIncome),
-    takeLatest(addExpense.type, handleAddExpense),
-    takeLatest(addSaving.type, handleAddSaving),
+    takeEvery(addIncomeRequest.type, handleAddIncome),
+    takeEvery(addExpenseRequest.type, handleAddExpense),
+    takeEvery(addSavingRequest.type, handleAddSaving),
   ]);
 }

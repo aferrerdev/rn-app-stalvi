@@ -1,5 +1,5 @@
-import {ITransaction, Periodicity} from '../interfaces/interfaces';
-import {BalanceState} from '../redux/state';
+import {ITransaction, Month, Periodicity} from '../interfaces/interfaces';
+import {BalanceState} from '../store/calculator/calculator.reducer';
 
 export class BalanceCalculator {
   private balance: BalanceState;
@@ -13,7 +13,7 @@ export class BalanceCalculator {
   }
 
   public getMonthlySavingsAfterExpenses() {
-    const currentMonth = new Date().getMonth() + 1;
+    const currentMonth = <Month>(new Date().getMonth() + 1).toString();
     const incomeAmount = this.balance.income
       .filter((transaction: ITransaction) =>
         transaction.selectedMonths.includes(currentMonth),

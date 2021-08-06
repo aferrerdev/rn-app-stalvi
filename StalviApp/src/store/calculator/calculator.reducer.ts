@@ -2,9 +2,33 @@ import {createAction, createReducer, PayloadAction} from '@reduxjs/toolkit';
 import {ISavings, ITransaction} from '../../interfaces/interfaces';
 import {mockupState} from '../mockup/state.mockup';
 
-export const addExpense = createAction<ITransaction>('@BALANCE/ADD_EXPENSE');
-export const addIncome = createAction<ITransaction>('@BALANCE/ADD_INCOME');
-export const addSaving = createAction<ITransaction>('@BALANCE/ADD_SAVING');
+export const addExpenseRequest = createAction<ITransaction>(
+  '@BALANCE/ADD_EXPENSE_REQUEST',
+);
+export const addExpenseSuccess = createAction<ITransaction>(
+  '@BALANCE/ADD_EXPENSE_SUCCESS',
+);
+export const addExpenseError = createAction<ITransaction>(
+  '@BALANCE/ADD_EXPENSE_ERROR',
+);
+export const addIncomeRequest = createAction<ITransaction>(
+  '@BALANCE/ADD_INCOME_REQUEST',
+);
+export const addIncomeSuccess = createAction<ITransaction>(
+  '@BALANCE/ADD_INCOME_SUCCESS',
+);
+export const addIncomeError = createAction<ITransaction>(
+  '@BALANCE/ADD_INCOME_ERROR',
+);
+export const addSavingRequest = createAction<ITransaction>(
+  '@BALANCE/ADD_SAVING_REQUEST',
+);
+export const addSavingSuccess = createAction<ITransaction>(
+  '@BALANCE/ADD_SAVING_SUCCESS',
+);
+export const addSavingError = createAction<ITransaction>(
+  '@BALANCE/ADD_SAVING_ERROR',
+);
 
 export interface BalanceState {
   expenses: Array<ITransaction>;
@@ -20,15 +44,21 @@ const initialBalanceState: BalanceState = {
 };*/
 
 export const calculatorReducer = createReducer(mockupState, {
-  [addExpense.type]: (
+  [addExpenseSuccess.type]: (
     state: BalanceState,
     action: PayloadAction<ITransaction>,
   ) => ({...state, expenses: [...state.expenses, action.payload]}),
-  [addIncome.type]: (
+  [addIncomeSuccess.type]: (
     state: BalanceState,
     action: PayloadAction<ITransaction>,
-  ) => ({...state, income: [...state.income, action.payload]}),
-  [addSaving.type]: (state: BalanceState, action: PayloadAction<ISavings>) => ({
+  ) => {
+    console.log('reducer');
+    return {...state, income: [...state.income, action.payload]};
+  },
+  [addSavingSuccess.type]: (
+    state: BalanceState,
+    action: PayloadAction<ISavings>,
+  ) => ({
     ...state,
     saving: [...state.saving, action.payload],
   }),

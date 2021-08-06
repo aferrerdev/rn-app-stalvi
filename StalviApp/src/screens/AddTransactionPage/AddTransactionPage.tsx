@@ -3,7 +3,7 @@ import {View, StyleSheet} from 'react-native';
 import {Text, Button} from 'react-native-elements';
 import {useDispatch} from 'react-redux';
 import {ITransaction} from '../../interfaces/interfaces';
-import {addIncome} from '../../store/calculator/calculator.reducer';
+import {addIncomeRequest} from '../../store/calculator/calculator.reducer';
 
 const styles = StyleSheet.create({
   page: {flex: 1, justifyContent: 'flex-start', alignItems: 'flex-start'},
@@ -19,13 +19,13 @@ const AddTransactionPage = (props: AddTransactionPageProps) => {
   const dispatch = useDispatch();
 
   const handleConfirmButton = () => {
-    console.log(addIncome.type);
+    //const selectedMonths = props.route.params.selectedMonths.map((item) => item.)
     const transaction: ITransaction = {
       ...props.route.params,
       amount: 200,
       name: 'Test',
     };
-    dispatch({type: addIncome.type, payload: transaction});
+    dispatch(addIncomeRequest(transaction));
   };
 
   return (

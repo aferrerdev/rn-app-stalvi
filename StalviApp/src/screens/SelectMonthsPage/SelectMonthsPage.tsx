@@ -22,8 +22,13 @@ const styles = StyleSheet.create({
 });
 
 const initialMonthCheckbox: any = {};
+
 Object.keys(Month).forEach(
-  element => (initialMonthCheckbox[element.toString()] = false),
+  (element, index) =>
+    (initialMonthCheckbox[element.toString()] = {
+      selected: false,
+      id: (index + 1).toString(),
+    }),
 );
 
 interface SelectMonthsPageProps {
@@ -33,20 +38,22 @@ interface SelectMonthsPageProps {
 const SelectMonthsPage = (props: SelectMonthsPageProps) => {
   const navigator = useNavigation();
   const months: Array<any> = Object.keys(Month);
-  const [selectedMonths, setSelectedMonths] =
-    useState<any>(initialMonthCheckbox);
+  const [options, setOptions] = useState<any>(initialMonthCheckbox);
 
   const onMonthPressed = (month: string) => {
-    let clonedMonths = {...selectedMonths};
-    clonedMonths[month] = !clonedMonths[month];
-    setSelectedMonths(clonedMonths);
+    let clonedMonths = {...options};
+    clonedMonths[month].selected = !clonedMonths[month].selected;
+    setOptions(clonedMonths);
   };
 
   const isMonthSelected = (month: string) => {
-    return selectedMonths[month];
+    return options[month].selected;
   };
 
   const pressContinue = () => {
+    const selectedMonths = Object.keys(options).filter(
+      (key: string) => options[key].selected,
+    );
     navigator.navigate('AddTransaction', {
       type: props.route.params.type,
       subType: props.route.params.subType,
